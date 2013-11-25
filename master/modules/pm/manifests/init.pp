@@ -28,7 +28,7 @@ class pm {
       require => Package['puppet-server'];
     'iptables':
       ensure => running,
-      require => Package['puppet-server'],
+      require => File['/etc/sysconfig/iptables'],
       subscribe => File['/etc/sysconfig/iptables'];
   }
 

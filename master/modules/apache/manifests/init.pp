@@ -15,7 +15,7 @@ class apache {
     '/etc/httpd/conf.d/welcome.conf' :
       content => template('apache/welcome.conf.erb'),
       mode => 0644, owner => root, group => root,
-      notify => Package['apache_server'];  
+      require => Package['apache_server'];  
   }
   
   $apache_server = $operatingsystem ? {
